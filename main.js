@@ -4,9 +4,9 @@ var submitButton = document.getElementById("submit");
 var treeHeight;
 var leafType;
 
-function tree(h, t){
-	for (var i = 0; i < h; i++) {
-	console.log((" ").repeat((h - i) * t.length), t.repeat(1 + 2* i));
+function growTree(tree){
+	for (var i = 0; i < tree.height; i++) {
+	console.log((" ").repeat((tree.height - i) * (tree.leaf).length), tree.leaf.repeat(1 + 2* i));
 	}
 }
 function submit(event) {
@@ -18,7 +18,8 @@ function submit(event) {
 	else if(leafType.length < 1) {
 		alert("Enter a String or Character");
 	}else {
-		tree(treeHeight, leafType);
+		var tree = {height: treeHeight, leaf: leafType};
+		growTree(tree);
 	}
 }
 function enterEvent(event){
